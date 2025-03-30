@@ -1,21 +1,11 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const { Pool } = require('pg');
-
+const tripRoutes = require('./routes/trips');  // Import trips routes
 
 const app = express();
 app.use(cors());
 app.use(bodyParser.json());
-
-// Create a new pool instance
-const pool = new Pool({
-    user: 'postgres',
-    host: 'localhost',
-    database: 'travel_agency',
-    password: 'postgreabhi',
-    port: 5432,
-});
 
 // Registration endpoint
 app.post('/api/customers/register', async (req, res) => {
@@ -59,6 +49,10 @@ app.post('/api/customers/login', async (req, res) => {
         return res.status(500).json({ message: 'Error logging in' });
     }
 });
+
+
+app.use("/api/trips", tripRoutes); // Register the API route
+
 
 // Start the server
 const PORT = process.env.PORT || 5000;
