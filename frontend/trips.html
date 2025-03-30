@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Trips</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Manage Trips</h1>
+    <form id="tripForm">
+        <input type="text" name="destination" placeholder="Destination" required>
+        <input type="date" name="start_date" required>
+        <input type="date" name="end_date" required>
+        <input type="number" name="price" placeholder="Price" required>
+        <button type="submit">Add Trip</button>
+    </form>
+    <div id="tripList"></div>
+    <script src="app.js"></script>
+</body>
+</html>
